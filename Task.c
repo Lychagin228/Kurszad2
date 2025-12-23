@@ -111,12 +111,3 @@ int main() {
 
     return 0;
 }
-case 2:
-            printf("Введите начало интервала: ");
-            scanf("%lf", &a);
-            printf("Введите конец интервала: ");
-            scanf("%lf", &b);
-            printf("Введите шаг: ");
-            scanf("%lf", &step);
-            tablica(a, b, step);
-            break;
