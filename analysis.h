@@ -52,7 +52,7 @@ double integral(double a, double b, int n);
  * @return 1 - если решение найдено, 0 - если решение не найдено на интервале [-10, 10]
  *         При успешном поиске результат записывается по адресу result
  */
-double poisk_x(double y, double eps, double* result);
+int poisk_x(double y, double eps, double* result);
 
 /**
  * Вычисление производной функции в точке методом конечных разностей
@@ -69,3 +69,4 @@ int menu();
 
 
 #endif // ANALYSIS_H
+
