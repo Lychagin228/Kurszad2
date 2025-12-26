@@ -2,6 +2,8 @@
 #include <locale.h>
 #include "analysis.h"
 
+// Глобальная переменная для точности
+double global_eps = 0.001;
 
 // Главная функция
 int main() {
