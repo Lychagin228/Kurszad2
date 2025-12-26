@@ -6,11 +6,10 @@
 // Главная функция
 int main() {
     setlocale(LC_CTYPE, "RUS");
-    int user_choice; // Переименовали для ясности
+    int user_choice;
     double x, y, eps, a, b, step;
     int n;
     double found_x;
-    int search_result;
 
     printf("\n");
     printf("****************************************\n");
@@ -26,7 +25,6 @@ int main() {
         // Получаем выбор пользователя из меню
         user_choice = menu();
         
-        // Обрабатываем выбор
         switch (user_choice) {
         case 1:
             printf("Введите x: ");
@@ -65,17 +63,13 @@ int main() {
         case 4:
             printf("Введите y: ");
             scanf("%lf", &y);
-            printf("Введите точность: ");
-            scanf("%lf", &eps);
-            if (eps <= 0) {
-                printf("Ошибка: точность должна быть положительной!\n");
-                break;
-            }
-            printf("Поиск x для y = %.3lf\n", y);
+            printf("Поиск x для y = %.3lf (с точностью %.6lf)\n", y, global_eps);
             
-            search_result = poisk_x(y, eps, &found_x);
-            if (search_result == 1) {
-                printf("Результат поиска: x = %.4lf, f(x) = %.6lf\n", found_x, f(found_x));
+            found_x = poisk_x(y, global_eps);
+            
+            // Проверяем, найден ли результат
+            if (found_x != 10000.0) {
+                printf("Результат поиска: x = %.6lf, f(x) = %.6lf\n", found_x, f(found_x));
             } else {
                 printf("Решение не найдено на интервале [-10, 10] с заданной точностью.\n");
             }
@@ -88,6 +82,18 @@ int main() {
             break;
 
         case 6:
+            printf("Текущее значение точности: %.6lf\n", global_eps);
+            printf("Введите новое значение точности: ");
+            scanf("%lf", &global_eps);
+            if (global_eps <= 0) {
+                printf("Ошибка: точность должна быть положительной! Установлено значение 0.001\n");
+                global_eps = 0.001;
+            } else {
+                printf("Точность успешно изменена на: %.6lf\n", global_eps);
+            }
+            break;
+
+        case 7:
             printf("Выход из программы.\n");
             break;
 
@@ -96,18 +102,18 @@ int main() {
             break;
         }
 
-        // Если не выход, спрашиваем о продолжении
-        if (user_choice != 6) {
+        if (user_choice != 7) {
             printf("\nВернуться в меню? (1 - да, 0 - нет): ");
             int continue_flag;
             scanf("%d", &continue_flag);
             if (continue_flag == 0) {
-                user_choice = 6; // Имитируем выбор "Выход"
+                user_choice = 7;
                 printf("Завершение работы программы.\n");
             }
         }
 
-    } while (user_choice != 6);
+    } while (user_choice != 7);
 
     return 0;
 }
+
