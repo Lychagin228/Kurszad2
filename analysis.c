@@ -24,6 +24,7 @@ double f(double x) {
  * Меню программы - вывод доступных операций
  * @return choice в случае успешного выполнения
  */
+// Меню
 int menu() {
     int choice;
     
@@ -33,14 +34,13 @@ int menu() {
     printf("| 3. Вычисление интеграла              |\n");
     printf("| 4. Поиск x по y                      |\n");
     printf("| 5. Производная в точке               |\n");
-    printf("| 6. Выход                             |\n");
+    printf("| 6. Изменить точность (текущ.: %.6lf) |\n", global_eps);
+    printf("| 7. Выход                             |\n");
     printf("========================================\n");
     
-    // Запрашиваем ввод до тех пор, пока не получим корректный выбор
     while (1) {
-        printf("Выберите действие (1-6): ");
+        printf("Выберите действие (1-7): ");
         
-        // Проверяем, что введено именно число
         if (scanf("%d", &choice) != 1) {
             printf("Ошибка: введите число!\n");
             // Очищаем буфер ввода
@@ -49,15 +49,16 @@ int menu() {
         }
         
         // Проверяем диапазон
-        if (choice >= 1 && choice <= 6) {
-            break; // Корректный ввод
+        if (choice >= 1 && choice <= 7) {
+            break;
         } else {
-            printf("Ошибка: выберите число от 1 до 6!\n");
+            printf("Ошибка: выберите число от 1 до 7!\n");
         }
     }
     
     return choice;
 }
+
 
 /**
  * Функция вычисления значения в точке (обертка для меню)
@@ -116,25 +117,25 @@ double integral(double a, double b, int n) {
  * @return 1 - если решение найдено, 0 - если решение не найдено на интервале [-10, 10]
  *         При успешном поиске результат записывается по адресу result
  */
-int poisk_x(double y, double eps, double* result) {
+// 4. Поиск x по y
+double poisk_x(double y, double eps) {
     double start = -10.0;
     double end = 10.0;
     double step = 0.001;
-    
-    *result = 10000.0;
     
     for (double x = start; x <= end; x += step) {
         double fx = f(x);
         double diff = fabs(fx - y);
 
         if (diff < eps) {
-            *result = x;
-            return 1;
+            return x;  // Возвращаем найденное значение x
         }
     }
     
-    return 0;
+    // Если решение не найдено, возвращаем специальное значение
+    return 10000.0;
 }
+
 
 /**
  * Вычисление производной методом правой разности
@@ -146,3 +147,4 @@ double proizvodnaya(double x) {
     return (f(x + h) - f(x)) / h;
 
 }
+
