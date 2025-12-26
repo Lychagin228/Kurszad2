@@ -3,6 +3,9 @@
 #include <locale.h>
 #include "analysis.h"
 
+// Глобальная переменная для точности
+double global_eps = 0.001;
+
 /**
  * Основная функция f(x) - вычисление кусочной функции
  * @param x аргумент функции
@@ -147,4 +150,5 @@ double proizvodnaya(double x) {
     return (f(x + h) - f(x)) / h;
 
 }
+
 
