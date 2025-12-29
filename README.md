@@ -242,26 +242,27 @@ filename - имя файла для сохранения, тип const char*.
 
 ### Начальный экран программы
 
-
+<img width="517" height="458" alt="image" src="https://github.com/user-attachments/assets/eedadcbf-06a7-4a8e-817d-d4b7cc3085b7" />
 
 ### Операция «значение функции в точке»
 
-
+<img width="512" height="547" alt="image" src="https://github.com/user-attachments/assets/2a61e566-300e-48a7-b00d-3a69d066de87" />
 
 ### Операция «функция табулирования»
 
-
+<img width="515" height="693" alt="image" src="https://github.com/user-attachments/assets/2c16dd8d-f582-4f1a-bc36-1ddd932fdb73" />
 
 ### Операция «вычисление интеграла»
 
-
+<img width="584" height="587" alt="image" src="https://github.com/user-attachments/assets/b623bf8b-c71a-4ed8-a683-7ed1cb82fe8b" />
 
 ### Операция «поиск x по y»
 
-
+<img width="591" height="471" alt="image" src="https://github.com/user-attachments/assets/39f7549e-25a9-4ee0-a5b8-e19f3f96f7fc" />
 
 ### Операция «производная в точке»
 
+<img width="531" height="389" alt="image" src="https://github.com/user-attachments/assets/bcd9e957-221b-46e4-a2b1-329205dac529" />
 
 
 
